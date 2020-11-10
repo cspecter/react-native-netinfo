@@ -73,9 +73,10 @@ declare global {
 
 // Check if the browser supports the connection API
 const connection =
-  window.navigator.connection ||
-  window.navigator.mozConnection ||
-  window.navigator.webkitConnection;
+  window &&
+  (window.navigator.connection ||
+    window.navigator.mozConnection ||
+    window.navigator.webkitConnection);
 
 // Map browser types to native types
 const typeMapping: Record<ConnectionType, NetInfoStateType> = {
